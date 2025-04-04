@@ -46,18 +46,30 @@ export interface ArtistProfile {
       eventType: string;
       verified: boolean;
     }[];
+    experience: string[];
+    achievements: string[];
+    specialties: string[];
+    heroImage: string;
+    headshot: string;
+    venueExperience: Venue[];
+    featuredVenues: string[];
+    venueImages: VenueImage[];
+    galleryImages: GalleryImage[];
+    headshotImages: HeadshotImage[];
+    performanceImages: PerformanceImage[];
   }
 
 export interface Configuration {
+  id: string;
   type: string;
   description: string;
   minPrice: number;
   maxPrice: number;
+  price?: number;
   duration: string;
   includes: string[];
   image: string;
-  negotiable?: boolean;
-  customQuotes?: PriceQuote[];
+  instruments?: string[];
 }
 
 export interface PriceQuote {
@@ -86,4 +98,39 @@ export interface Media {
   url: string;
   thumbnail: string;
   title: string;
+}
+
+export interface VenueImage {
+  id: string;
+  venueName: string;
+  imagePath: string;
+  description?: string;
+  uploadDate: Date;
+  isDefault?: boolean;
+}
+
+export interface GalleryImage {
+  id: string;
+  imagePath: string;
+  description?: string;
+  uploadDate: Date;
+  category: 'performance' | 'behind-the-scenes' | 'venue' | 'other';
+}
+
+export interface HeadshotImage {
+  id: string;
+  imagePath: string;
+  description?: string;
+  uploadDate: Date;
+  isDefault?: boolean;
+}
+
+export interface PerformanceImage {
+  id: string;
+  imagePath: string;
+  description?: string;
+  uploadDate: Date;
+  performanceType: string;
+  venue?: string;
+  date?: Date;
 }

@@ -32,26 +32,32 @@ export default function VenueExperience({ venues = [], featuredVenues = [] }: Ve
 
   // Get featured venue images
   const getVenueImage = (venueName: string) => {
-    // Map venue names to image URLs
+    // Map venue names to local image paths
     const venueImages: Record<string, string> = {
-      'The Grand Ballroom': 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'Skyline Rooftop': 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Garden Pavilion': 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Historic Mansion': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Modern Loft': 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Beach Club': 'https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Country Club': 'https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Art Gallery': 'https://images.unsplash.com/photo-1577083552431-6e5fd01988d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Wine Cellar': 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Rooftop Lounge': 'https://images.unsplash.com/photo-1517248135467-4c7ecad25c4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Jazz Club': 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Opera House': 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Concert Hall': 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Outdoor Amphitheater': 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      'The Private Estate': 'https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+      'Wortham Theater': '/images/artists/tianna-hall/venues/wortham-theater.jpg',
+      'Houston Symphony Hall': '/images/artists/tianna-hall/venues/houston-symphony-hall.jpg',
+      'River Oaks Country Club': '/images/artists/tianna-hall/venues/river-oaks-country-club.jpg',
+      'Four Seasons Hotel Houston': '/images/artists/tianna-hall/venues/four-seasons-houston.jpg',
+      'Museum of Fine Arts Houston': '/images/artists/tianna-hall/venues/museum-of-fine-arts.jpg',
+      'Rice University': '/images/artists/tianna-hall/venues/rice-university.jpg',
+      'The Grand Ballroom at The Houstonian': '/images/artists/tianna-hall/venues/houstonian-grand-ballroom.jpg',
+      'Skyline Rooftop at Post Oak Hotel': '/images/artists/tianna-hall/venues/post-oak-skyline.jpg',
+      'The Garden Pavilion at River Oaks Country Club': '/images/artists/tianna-hall/venues/river-oaks-garden.jpg',
+      'The Historic Mansion at Bayou Bend': '/images/artists/tianna-hall/venues/bayou-bend.jpg',
+      'The Modern Loft at Market Square Tower': '/images/artists/tianna-hall/venues/market-square-tower.jpg',
+      'The Beach Club at Galveston': '/images/artists/tianna-hall/venues/galveston-beach-club.jpg',
+      'The Country Club at Champions Golf Club': '/images/artists/tianna-hall/venues/champions-golf-club.jpg',
+      'The Art Gallery at Museum of Fine Arts': '/images/artists/tianna-hall/venues/mfa-gallery.jpg',
+      'The Wine Cellar at Brennan\'s of Houston': '/images/artists/tianna-hall/venues/brennans-wine-cellar.jpg',
+      'The Rooftop Lounge at The St. Regis Houston': '/images/artists/tianna-hall/venues/st-regis-rooftop.jpg',
+      'The Jazz Club at The Heights Theater': '/images/artists/tianna-hall/venues/heights-theater.jpg',
+      'The Opera House at Wortham Theater': '/images/artists/tianna-hall/venues/wortham-opera.jpg',
+      'The Concert Hall at Jones Hall': '/images/artists/tianna-hall/venues/jones-hall.jpg',
+      'The Outdoor Amphitheater at Miller Outdoor Theatre': '/images/artists/tianna-hall/venues/miller-outdoor.jpg',
+      'The Private Estate at River Oaks': '/images/artists/tianna-hall/venues/river-oaks-estate.jpg'
     };
     
-    return venueImages[venueName] || '/images/venues/default.jpg';
+    return venueImages[venueName] || '/images/artists/tianna-hall/venues/default-venue.jpg';
   };
 
   // Animation variants
@@ -96,7 +102,7 @@ export default function VenueExperience({ venues = [], featuredVenues = [] }: Ve
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {Object.entries(venueTypes).map(([type, venuesOfType], index) => (
+            {Object.entries(venueTypes).map(([type, venuesOfType]) => (
               <motion.div
                 key={type}
                 variants={itemVariants}
@@ -136,7 +142,7 @@ export default function VenueExperience({ venues = [], featuredVenues = [] }: Ve
               >
                 {featuredVenues.map((venueName, index) => (
                   <motion.div
-                    key={venueName}
+                    key={`${venueName}-${index}`}
                     variants={itemVariants}
                     className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105"
                   >
